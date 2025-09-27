@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffffff">
+<title>光的守护者·随身指引</title>
+<style>
+  :root { --bg:#ffffff; --text:#111; --muted:#666; --primary:#111; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif; background:var(--bg); color:var(--text);}
+  header { position: sticky; top:0; background:#fff; border-bottom:1px solid #eee; padding:12px 16px; display:flex; align-items:center; gap:12px; z-index:10;}
+  header h1 { font-size:18px; margin:0; }
+  #tabs { display:flex; gap:8px; overflow:auto; }
+  #tabs button { padding:8px 12px; border:1px solid #ddd; background:#fff; border-radius:999px; font-size:14px; white-space:nowrap; }
+  #tabs button.active { background:#111; color:#fff; border-color:#111; }
+  main { padding:16px; max-width:860px; margin:0 auto; }
+  section { display:none; }
+  section.active { display:block; animation:fade .2s ease-in; }
+  @keyframes fade { from {opacity:0} to {opacity:1} }
+  .card { border:1px solid #eee; border-radius:16px; padding:16px; margin:12px 0; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .muted { color:var(--muted); }
+  input[type="search"] { width:100%; padding:12px 14px; border-radius:12px; border:1px solid #ddd; }
+  .btn { display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid #111; background:#111; color:#fff; text-decoration:none; }
+  .btn.ghost { background:#fff; color:#111; }
+  .k { font-weight:600; }
+  .small { font-size:12px; }
+  .grid { display:grid; grid-template-columns:1fr; gap:12px; }
+  @media(min-width:680px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<header>
+  <h1>光的守护者·随身指引</h1>
+  <div id="tabs">
+    <button data-tab="home" class="active">首页</button>
+    <button data-tab="draw">抽一张</button>
+    <button data-tab="how">使用方法</button>
+    <button data-tab="prayers">祈祷</button>
+    <button data-tab="cards">卡片索引</button>
+  </div>
+</header>
+<main>
+  <section id="home" class="active">
+    <div class="card">
+      <h2>欢迎 ✨</h2>
+      <p>这是一款离线可用的小工具，帮助你随时查阅<strong>光的守护者（Keepers of the Light）</strong>的入门要点、祈祷词与抽牌流程。</p>
+      <p class="muted small">提示：在 Safari（iPhone）点击“分享”→「添加到主屏幕」，或在 Android 的 Chrome 中菜单→「添加到主屏幕」，即可像 App 一样使用。</p>
+    </div>
+    <div class="card">
+      <h3>快速开始</h3>
+      <ol>
+        <li>深呼吸 3 次，轻敲卡边 3 下，心中设定：只为最高善。</li>
+        <li>在「抽一张」页抽牌；把讯息转化为<strong>今天/本周的一步小行动</strong>。</li>
+        <li>在「卡片索引」里用搜索快速查找守护者的关键词与提示。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="draw">
+    <div class="card">
+      <h2>抽一张（日卡）</h2>
+      <button id="drawBtn" class="btn">抽牌</button>
+      <button id="saveNoteBtn" class="btn ghost">保存笔记</button>
+      <div id="drawn" style="margin-top:12px;"></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="card">
+      <h2>使用方法</h2>
+      <p><span class="k">问法：</span>开放式更好（如「我可以如何…？」、「此阶段我需要学习什么？」）。</p>
+      <p><span class="k">读法：</span>先认守护者原型→关键词→图像细节→落地为<strong>一件可执行小事</strong>。</p>
+      <p><span class="k">复盘：</span>7 天后回看，保留有效做法、调整无效做法。</p>
+    </div>
+    <div class="card">
+      <h3>推荐牌阵</h3>
+      <ul>
+        <li><strong>单张日讯：</strong>今日主题/态度。</li>
+        <li><strong>三张：过去—现在—建议：</strong>第③张直接化为“第一步行动”。</li>
+        <li><strong>七轮脉扫描（进阶）：</strong>自下而上抽 7 张对应海底轮→顶轮。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="prayers">
+    <div class="card">
+      <h2>通用祈祷</h2>
+      <p>至高之光与光的守护者、以及我的高我：我邀请你们在爱与智慧中临在，请让这副卡成为清晰而纯净的桥梁。愿我所接收与传达的讯息，只服务于最高善、清明与慈悲。如此愿成。</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>大天使米迦勒｜保护与界线</h3>
+        <p>请以真理与蓝光围绕我，切断不再合宜的连结，帮助我在勇气与平静中划定界线，做出正直选择。</p>
+      </div>
+      <div class="card">
+        <h3>圣日耳曼｜转化与自由</h3>
+        <p>紫火炼化我陈旧的恐惧与模式，将其化为智慧与自由的行动力，帮助我轻装前行。</p>
+      </div>
+      <div class="card">
+        <h3>观音｜慈悲与沟通</h3>
+        <p>开启我心中的柔软与明辨，使我以慈悲而清晰的语言沟通，让理解与善意在我与众生之间流动。</p>
+      </div>
+      <div class="card">
+        <h3>圣母玛利亚｜滋养与无条件之爱</h3>
+        <p>以温柔之爱安抚并滋养我，让我在接纳中找回力量，也更合宜地照顾自己与他人。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cards">
+    <div class="card">
+      <input id="search" type="search" placeholder="搜索卡名或关键词…（如：保护 / 转化 / 爱）" />
+    </div>
+    <div id="list" class="grid"></div>
+    <div class="card small muted">
+      <p>说明：卡片简介为原创中文要点，帮助你快速落地。若需完整逐字释义，请参考你手中的英文随书指南或官方 App。</p>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Register SW
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
+  }
+
+  const tabs = document.querySelectorAll('#tabs button');
+  const secs = document.querySelectorAll('main section');
+  tabs.forEach(btn=>btn.addEventListener('click', () => { 
+    tabs.forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    secs.forEach(s=>s.classList.remove('active'));
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  }));
+
+  const cards = [{"name": "大天使米迦勒 Archangel Michael", "keyword": "保护・勇气・界线", "tip": "请求蓝光守护，果断说不；今天做一件保护自己能量的事。"}, {"name": "圣日耳曼 Saint Germain", "keyword": "转化・紫火・业力释放", "tip": "写下三个旧模式并用行动替换；紫火冥想 3 分钟。"}, {"name": "观音 Quan Yin", "keyword": "慈悲・宽恕・温柔沟通", "tip": "今天练习不批判地倾听 5 分钟；对自己温柔说话。"}, {"name": "圣母玛利亚 Mother Mary", "keyword": "滋养・无条件之爱", "tip": "把自己当作需要安抚的孩子，安排 15 分钟自我照顾。"}, {"name": "布里吉德 Brigid", "keyword": "内在力量・完整・心火", "tip": "聚焦最重要的一件事，并迈出第一小步。"}, {"name": "盖娅 Gaia", "keyword": "接地・自然连结・身体觉察", "tip": "外出走路 10 分钟，与大地连结；喝水、慢呼吸。"}, {"name": "凯尔努诺斯 Cernunnos", "keyword": "生命力・创意・丰盛流动", "tip": "让激情有正直出口：创作/运动 20 分钟。"}, {"name": "抹大拉的玛利亚 Mary Magdalene", "keyword": "师者之道・神圣女性・真理", "tip": "用温柔而坚定的真话表达一次。"}, {"name": "圣安娜 Saint Anna", "keyword": "祖系祝福・耐心・孕育", "tip": "慢一点；把长期目标拆成可执行微步骤。"}, {"name": "圣库玛拉 Sanat Kumara", "keyword": "内在之光・觉醒・领导力", "tip": "点亮他人：分享一次你的洞见/善意。"}, {"name": "维纳斯 Lady Venus", "keyword": "启示・直觉讯息・关系课题", "tip": "记录今天的直觉与灵感；留意关系中的镜像。"}, {"name": "拉德哈 Radha", "keyword": "灵魂之爱・奉爱・共振", "tip": "练习自爱肯定句：我值得被爱，也值得爱自己。"}, {"name": "克里希纳 Krishna", "keyword": "喜悦・音乐・顺流", "tip": "做一件让你纯粹开心的小事。"}, {"name": "象头神 Ganesha", "keyword": "移除障碍・新开始", "tip": "列出一个障碍与一个可行替代方案。"}, {"name": "墨丘利 Mercury", "keyword": "沟通・速度・信息流动", "tip": "把要点写成三句话再沟通。"}, {"name": "塞拉皮斯·贝 Serapis Bey", "keyword": "提升・净化・纪律", "tip": "清理你的空间 10 分钟；回归日常纪律。"}, {"name": "保罗·威尼西亚 Paul the Venetian", "keyword": "创造・艺术表达・心灵启发", "tip": "尝试用颜色/文字表达你的感受。"}, {"name": "大天使拉斐尔 Archangel Raphael", "keyword": "疗愈・绿光・身心整合", "tip": "今天做一个身心友善的选择。"}, {"name": "大天使加百列 Archangel Gabriel", "keyword": "讯息・启示・宣告", "tip": "把心里的讯息写下来并选一件说出口。"}, {"name": "大天使乌列尔 Archangel Uriel", "keyword": "智慧之火・洞见・稳定", "tip": "遇事先停 10 秒再回应。"}];
+
+  const listEl = document.getElementById('list');
+  function renderList(filter='') { 
+    listEl.innerHTML = '';
+    cards.filter(c => (c.name+c.keyword).toLowerCase().includes(filter.toLowerCase()))
+         .forEach((c, idx) => {
+           const div = document.createElement('div');
+           div.className = 'card';
+           div.innerHTML = `<h3>${c.name}</h3>
+             <p class="muted">${c.keyword}</p>
+             <p>${c.tip}</p>
+             <textarea id="note-${idx}" placeholder="我的笔记…" style="width:100%;min-height:70px;border:1px solid #ddd;border-radius:10px;padding:10px;"></textarea>
+             <div style="margin-top:8px;">
+               <button class="btn small" onclick="saveNote(${idx})">保存笔记</button>
+               <span id="saved-${idx}" class="small muted" style="margin-left:8px;"></span>
+             </div>`;
+           listEl.appendChild(div);
+           const saved = localStorage.getItem('note-'+c.name);
+           if (saved) document.getElementById('note-'+idx).value = saved;
+         });
+  }
+  renderList();
+
+  document.getElementById('search').addEventListener('input', (e)=> renderList(e.target.value));
+
+  function drawOne(){
+    const i = Math.floor(Math.random()*cards.length);
+    return cards[i];
+  }
+  const drawnEl = document.getElementById('drawn');
+  document.getElementById('drawBtn').addEventListener('click', () => {
+    const c = drawOne();
+    drawnEl.innerHTML = `<div class='card'><h3>${c.name}</h3><p class='muted'>${c.keyword}</p><p>${c.tip}</p>
+    <textarea id="draw-note" placeholder="这张牌给我的第一步行动是…（越小越具体越好）" style="width:100%;min-height:90px;border:1px solid #ddd;border-radius:10px;padding:10px;"></textarea>
+    <p class="small muted">已自动保存到本机（离线可用）。</p></div>`;
+    const saved = localStorage.getItem('draw-note');
+    if (saved) document.getElementById('draw-note').value = saved;
+    document.getElementById('draw-note').addEventListener('input', (e)=> localStorage.setItem('draw-note', e.target.value));
+  });
+
+  function saveNote(idx){
+    const ta = document.getElementById('note-'+idx);
+    const name = cards[idx].name;
+    localStorage.setItem('note-'+name, ta.value);
+    const savedEl = document.getElementById('saved-'+idx);
+    savedEl.textContent = '已保存 ✓';
+    setTimeout(()=>savedEl.textContent='', 1600);
+  }
+  window.saveNote = saveNote;
+
+  document.getElementById('saveNoteBtn').addEventListener('click', () => {
+    const ta = document.getElementById('draw-note');
+    if (!ta) return;
+    localStorage.setItem('draw-note', ta.value);
+    alert('已保存到本机 ✓');
+  });
+</script>
+</body>
+</html>
