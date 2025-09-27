@@ -1,21 +1,17 @@
 {
+  "id": "/light-keepers-pwa/",
   "name": "光的守护者·随身指引（中法双语版）",
   "short_name": "光之指引·双语",
+  "description": "Keepers of the Light 随身指引：用法、祈祷、牌阵与卡片要点（中法双语），离线可用。",
   "lang": "zh-CN",
-  "start_url": ".",
+  "start_url": "/light-keepers-pwa/", 
+  "scope": "/light-keepers-pwa/",
   "display": "standalone",
+  "display_override": ["standalone", "browser"],
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
