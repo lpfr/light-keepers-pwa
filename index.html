@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#ffffff">
-<title>光的守护者·随身指引</title>
+<title>光的守护者·随身指引（中法双语）</title>
 <style>
   :root { --bg:#ffffff; --text:#111; --muted:#666; --primary:#111; }
   * { box-sizing: border-box; }
@@ -15,7 +15,7 @@
   #tabs { display:flex; gap:8px; overflow:auto; }
   #tabs button { padding:8px 12px; border:1px solid #ddd; background:#fff; border-radius:999px; font-size:14px; white-space:nowrap; }
   #tabs button.active { background:#111; color:#fff; border-color:#111; }
-  main { padding:16px; max-width:860px; margin:0 auto; }
+  main { padding:16px; max-width:920px; margin:0 auto; }
   section { display:none; }
   section.active { display:block; animation:fade .2s ease-in; }
   @keyframes fade { from {opacity:0} to {opacity:1} }
@@ -28,100 +28,93 @@
   .small { font-size:12px; }
   .grid { display:grid; grid-template-columns:1fr; gap:12px; }
   @media(min-width:680px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+  .two { display:grid; grid-template-columns:1fr; gap:12px; }
+  @media(min-width:860px){ .two{ grid-template-columns:1fr 1fr; } }
+  .tag { display:inline-block; padding:2px 8px; border:1px solid #ddd; border-radius:999px; margin-right:6px; font-size:12px; }
 </style>
 </head>
 <body>
 <header>
-  <h1>光的守护者·随身指引</h1>
+  <h1>光的守护者·随身指引 <span class="muted">/ Guide de poche</span></h1>
   <div id="tabs">
     <button data-tab="home" class="active">首页</button>
     <button data-tab="draw">抽一张</button>
-    <button data-tab="how">使用方法</button>
-    <button data-tab="prayers">祈祷</button>
-    <button data-tab="cards">卡片索引</button>
+    <button data-tab="spreads">牌阵 Spreads</button>
+    <button data-tab="how">用法 / Mode d'emploi</button>
+    <button data-tab="prayers">祈祷 / Prières</button>
+    <button data-tab="cards">卡片索引 / Index</button>
   </div>
 </header>
 <main>
   <section id="home" class="active">
     <div class="card">
-      <h2>欢迎 ✨</h2>
-      <p>这是一款离线可用的小工具，帮助你随时查阅<strong>光的守护者（Keepers of the Light）</strong>的入门要点、祈祷词与抽牌流程。</p>
-      <p class="muted small">提示：在 Safari（iPhone）点击“分享”→「添加到主屏幕」，或在 Android 的 Chrome 中菜单→「添加到主屏幕」，即可像 App 一样使用。</p>
-    </div>
-    <div class="card">
-      <h3>快速开始</h3>
-      <ol>
-        <li>深呼吸 3 次，轻敲卡边 3 下，心中设定：只为最高善。</li>
-        <li>在「抽一张」页抽牌；把讯息转化为<strong>今天/本周的一步小行动</strong>。</li>
-        <li>在「卡片索引」里用搜索快速查找守护者的关键词与提示。</li>
-      </ol>
+      <h2>欢迎 ✨ / Bienvenue</h2>
+      <p>这是一款离线可用的随身小工具（PWA），帮助你快速查阅<strong>光的守护者</strong>的用法、祈祷、牌阵与卡片要点（中法双语）。</p>
     </div>
   </section>
 
   <section id="draw">
     <div class="card">
-      <h2>抽一张（日卡）</h2>
-      <button id="drawBtn" class="btn">抽牌</button>
-      <button id="saveNoteBtn" class="btn ghost">保存笔记</button>
+      <h2>抽一张（日卡） / Carte du jour</h2>
+      <button id="drawBtn" class="btn">抽牌 / Tirer</button>
+      <button id="saveNoteBtn" class="btn ghost">保存笔记 / Enregistrer</button>
       <div id="drawn" style="margin-top:12px;"></div>
     </div>
   </section>
 
-  <section id="how">
+  <section id="spreads">
     <div class="card">
-      <h2>使用方法</h2>
-      <p><span class="k">问法：</span>开放式更好（如「我可以如何…？」、「此阶段我需要学习什么？」）。</p>
-      <p><span class="k">读法：</span>先认守护者原型→关键词→图像细节→落地为<strong>一件可执行小事</strong>。</p>
-      <p><span class="k">复盘：</span>7 天后回看，保留有效做法、调整无效做法。</p>
+      <h2>牌阵 Spreads（中法双语）</h2>
+      <div id="spreadsList" class="grid"></div>
     </div>
-    <div class="card">
-      <h3>推荐牌阵</h3>
-      <ul>
-        <li><strong>单张日讯：</strong>今日主题/态度。</li>
-        <li><strong>三张：过去—现在—建议：</strong>第③张直接化为“第一步行动”。</li>
-        <li><strong>七轮脉扫描（进阶）：</strong>自下而上抽 7 张对应海底轮→顶轮。</li>
-      </ul>
+  </section>
+
+  <section id="how">
+    <div class="card two">
+      <div>
+        <h2>用法要点</h2>
+        <ul>
+          <li><span class="k">问法：</span>开放式更好（我可以如何…？）</li>
+          <li><span class="k">读法：</span>原型→关键词→图像细节→行动</li>
+          <li><span class="k">复盘：</span>7 天后回看，保留有效做法</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Mode d'emploi</h2>
+        <ul>
+          <li><span class="k">Question :</span> ouverte (« Comment puis‑je… ? »)</li>
+          <li><span class="k">Lecture :</span> archétype → mots‑clés → détails → action</li>
+          <li><span class="k">Revue :</span> bilan à J+7, ajustements</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section id="prayers">
-    <div class="card">
-      <h2>通用祈祷</h2>
-      <p>至高之光与光的守护者、以及我的高我：我邀请你们在爱与智慧中临在，请让这副卡成为清晰而纯净的桥梁。愿我所接收与传达的讯息，只服务于最高善、清明与慈悲。如此愿成。</p>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>大天使米迦勒｜保护与界线</h3>
-        <p>请以真理与蓝光围绕我，切断不再合宜的连结，帮助我在勇气与平静中划定界线，做出正直选择。</p>
+    <div class="card two">
+      <div>
+        <h2>通用祈祷</h2>
+        <p>至高之光与光的守护者、以及我的高我：我邀请你们在爱与智慧中临在，请让这副卡成为清晰而纯净的桥梁。愿我所接收与传达的讯息，只服务于最高善、清明与慈悲。如此愿成。</p>
       </div>
-      <div class="card">
-        <h3>圣日耳曼｜转化与自由</h3>
-        <p>紫火炼化我陈旧的恐惧与模式，将其化为智慧与自由的行动力，帮助我轻装前行。</p>
-      </div>
-      <div class="card">
-        <h3>观音｜慈悲与沟通</h3>
-        <p>开启我心中的柔软与明辨，使我以慈悲而清晰的语言沟通，让理解与善意在我与众生之间流动。</p>
-      </div>
-      <div class="card">
-        <h3>圣母玛利亚｜滋养与无条件之爱</h3>
-        <p>以温柔之爱安抚并滋养我，让我在接纳中找回力量，也更合宜地照顾自己与他人。</p>
+      <div>
+        <h2>Prière générale</h2>
+        <p>Lumière suprême, Gardiens de la Lumière et mon Soi supérieur : soyez présents dans l’amour et la sagesse. Que ce jeu soit un pont clair et pur. Que les messages servent le bien le plus élevé, la clarté et la compassion. Ainsi soit‑il.</p>
       </div>
     </div>
   </section>
 
   <section id="cards">
     <div class="card">
-      <input id="search" type="search" placeholder="搜索卡名或关键词…（如：保护 / 转化 / 爱）" />
+      <input id="search" type="search" placeholder="搜索/Recherche…（卡名、关键词、法语均可）" />
     </div>
     <div id="list" class="grid"></div>
     <div class="card small muted">
-      <p>说明：卡片简介为原创中文要点，帮助你快速落地。若需完整逐字释义，请参考你手中的英文随书指南或官方 App。</p>
+      <p>说明 / Note ：卡片内容为原创中法双语要点，便于快速落地。若需逐字释义，请参考英文指南或官方 App。</p>
     </div>
   </section>
 </main>
 
 <script>
-  // Register SW
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
   }
@@ -134,21 +127,42 @@
     document.getElementById(btn.dataset.tab).classList.add('active');
   }));
 
-  const cards = [{"name": "大天使米迦勒 Archangel Michael", "keyword": "保护・勇气・界线", "tip": "请求蓝光守护，果断说不；今天做一件保护自己能量的事。"}, {"name": "圣日耳曼 Saint Germain", "keyword": "转化・紫火・业力释放", "tip": "写下三个旧模式并用行动替换；紫火冥想 3 分钟。"}, {"name": "观音 Quan Yin", "keyword": "慈悲・宽恕・温柔沟通", "tip": "今天练习不批判地倾听 5 分钟；对自己温柔说话。"}, {"name": "圣母玛利亚 Mother Mary", "keyword": "滋养・无条件之爱", "tip": "把自己当作需要安抚的孩子，安排 15 分钟自我照顾。"}, {"name": "布里吉德 Brigid", "keyword": "内在力量・完整・心火", "tip": "聚焦最重要的一件事，并迈出第一小步。"}, {"name": "盖娅 Gaia", "keyword": "接地・自然连结・身体觉察", "tip": "外出走路 10 分钟，与大地连结；喝水、慢呼吸。"}, {"name": "凯尔努诺斯 Cernunnos", "keyword": "生命力・创意・丰盛流动", "tip": "让激情有正直出口：创作/运动 20 分钟。"}, {"name": "抹大拉的玛利亚 Mary Magdalene", "keyword": "师者之道・神圣女性・真理", "tip": "用温柔而坚定的真话表达一次。"}, {"name": "圣安娜 Saint Anna", "keyword": "祖系祝福・耐心・孕育", "tip": "慢一点；把长期目标拆成可执行微步骤。"}, {"name": "圣库玛拉 Sanat Kumara", "keyword": "内在之光・觉醒・领导力", "tip": "点亮他人：分享一次你的洞见/善意。"}, {"name": "维纳斯 Lady Venus", "keyword": "启示・直觉讯息・关系课题", "tip": "记录今天的直觉与灵感；留意关系中的镜像。"}, {"name": "拉德哈 Radha", "keyword": "灵魂之爱・奉爱・共振", "tip": "练习自爱肯定句：我值得被爱，也值得爱自己。"}, {"name": "克里希纳 Krishna", "keyword": "喜悦・音乐・顺流", "tip": "做一件让你纯粹开心的小事。"}, {"name": "象头神 Ganesha", "keyword": "移除障碍・新开始", "tip": "列出一个障碍与一个可行替代方案。"}, {"name": "墨丘利 Mercury", "keyword": "沟通・速度・信息流动", "tip": "把要点写成三句话再沟通。"}, {"name": "塞拉皮斯·贝 Serapis Bey", "keyword": "提升・净化・纪律", "tip": "清理你的空间 10 分钟；回归日常纪律。"}, {"name": "保罗·威尼西亚 Paul the Venetian", "keyword": "创造・艺术表达・心灵启发", "tip": "尝试用颜色/文字表达你的感受。"}, {"name": "大天使拉斐尔 Archangel Raphael", "keyword": "疗愈・绿光・身心整合", "tip": "今天做一个身心友善的选择。"}, {"name": "大天使加百列 Archangel Gabriel", "keyword": "讯息・启示・宣告", "tip": "把心里的讯息写下来并选一件说出口。"}, {"name": "大天使乌列尔 Archangel Uriel", "keyword": "智慧之火・洞见・稳定", "tip": "遇事先停 10 秒再回应。"}];
+  const spreads = [{"id": "daily", "zh": {"name": "单张日讯", "when": "每日主题/态度", "layout": "抽1张", "steps": ["深呼吸3次，设定：只为最高善。", "心中提出开放式问题。", "抽1张→抓住核心动词→化为今天/本周的一步小行动。"]}, "fr": {"name": "Carte du jour", "when": "Thème / attitude du jour", "layout": "Tirez 1 carte", "steps": ["Respirez 3 fois, intention : pour le bien le plus élevé.", "Posez une question ouverte.", "Tirez 1 carte → captez le verbe‑cœur → transformez‑la en une petite action de la journée/semaine."]}}, {"id": "ppf", "zh": {"name": "三张：过去—现在—建议", "when": "看清脉络与当下最佳行动", "layout": "[1] 过去影响  [2] 当下能量  [3] 建议/第一步", "steps": ["翻第3张后，立刻写出“第一步行动”（越小越具体越好）。"]}, "fr": {"name": "Trois cartes : Passé — Présent — Conseil", "when": "Clarifier le contexte et l’action optimale", "layout": "[1] Influences passées  [2] Énergie actuelle  [3] Conseil / 1ère étape", "steps": ["Après la 3e carte, écrivez tout de suite la « première petite action »."]}}, {"id": "strength-action-outcome", "zh": {"name": "优势—行动—走向", "when": "受 Kyle Gray 教学启发（新手清晰）", "layout": "[1] 我的优势  [2] 我需要做的事  [3] 可能的走向", "steps": ["把第2张拆成可执行清单；第3张不是命定，而是“在此路径上的趋势”。"]}, "fr": {"name": "Forces — Action — Issue", "when": "Inspiré des ateliers de Kyle Gray (clair pour débutants)", "layout": "[1] Mes forces  [2] Ce que je dois faire  [3] Tendance/issue", "steps": ["Décomposez la carte 2 en actions concrètes ; la carte 3 indique une tendance, pas un destin figé."]}}, {"id": "chakra7", "zh": {"name": "七轮脉扫描", "when": "身心能量盘点与修复", "layout": "自下而上抽7张：海底轮→顶轮", "steps": ["观察每张牌落在的轮位含义；为该中心拟定呼吸/肯定句/一个行为。"]}, "fr": {"name": "Scan des 7 chakras", "when": "Bilan et harmonisation énergétique", "layout": "Tirez 7 cartes du bas vers le haut : racine → couronne", "steps": ["Reliez chaque carte au chakra correspondant ; définissez respiration/affirmation/une action ciblée."]}}, {"id": "relation5", "zh": {"name": "关系五点", "when": "人际/亲密沟通", "layout": "[1] 我方能量 [2] 对方能量 [3] 关系课题 [4] 有益的表达 [5] 近期步骤", "steps": ["把第5张写成一条可执行的沟通或边界。"]}, "fr": {"name": "Relation à 5 cartes", "when": "Communication et lien", "layout": "[1] Mon énergie [2] Son énergie [3] Le thème du lien [4] Expression aidante [5] Étape proche", "steps": ["Transformez la carte 5 en un geste/une limite concrète."]}}, {"id": "newmoon5", "zh": {"name": "新月愿景五点", "when": "开启新目标/项目", "layout": "[1] 本轮意图 [2] 支持力量 [3] 需要释放 [4] 关键资源 [5] 第一小步", "steps": ["把第5张落地为24–72小时内能完成的小行动。"]}, "fr": {"name": "Nouvelle lune : 5 cartes", "when": "Lancer un objectif/projet", "layout": "[1] Intention du cycle [2] Soutiens [3] À libérer [4] Ressource clé [5] 1ère petite étape", "steps": ["Faites de la 5e carte une action réalisable sous 24–72 h."]}}];
+  const cards = [{"name": "大天使米迦勒 Archangel Michael", "zh": {"keywords": "保护・勇气・界线", "about": "为你划清能量边界，鼓励直面恐惧与拖延。", "action": "今天拒绝一件消耗你的请求；做一次断缆可视化（用蓝光剑切断旧连结）。"}, "fr": {"keywords": "Protection • Courage • Frontières", "about": "Aide à tracer des limites énergétiques et à affronter peurs et procrastination.", "action": "Refusez une demande qui vous épuise ; visualisez l’épée bleue coupant les liens obsolètes."}}, {"name": "圣日耳曼 Saint Germain", "zh": {"keywords": "转化・紫火・业力释放", "about": "提醒以“紫火”意识炼化旧模式，把内疚化为智慧。", "action": "写下3个想放下的模式→各写一个替代行为并实践。"}, "fr": {"keywords": "Transmutation • Flamme violette • Libération karmique", "about": "Transmute les schémas anciens ; transforme la culpabilité en sagesse.", "action": "Notez 3 schémas à relâcher → définissez une alternative concrète pour chacun."}}, {"name": "观音 Quan Yin", "zh": {"keywords": "慈悲・宽恕・温柔沟通", "about": "以温柔与分辨并行，先理解再回应。", "action": "练习非暴力沟通：用“当我…我感到…我需要…我请求…”表达一次。"}, "fr": {"keywords": "Compassion • Pardon • Communication douce", "about": "Allie douceur et discernement ; comprendre avant de répondre.", "action": "Pratiquez la CNV : « Quand… je me sens… j’ai besoin de… je demande… »."}}, {"name": "圣母玛利亚 Mother Mary", "zh": {"keywords": "滋养・无条件之爱", "about": "邀请自我慈悲与照料，先把氧气罩戴好再帮助别人。", "action": "安排15分钟身心滋养（热饮/伸展/早睡）。"}, "fr": {"keywords": "Nourrir • Amour inconditionnel", "about": "Invite la compassion envers soi ; prenez soin de vous en premier.", "action": "Planifiez 15 minutes de soin (boisson chaude/étirements/coucher tôt)."}}, {"name": "布里吉德 Brigid", "zh": {"keywords": "内在力量・完整・心火", "about": "心火正在增长；回到完整与自我主权。", "action": "把今天最重要的一件事写下来并行动15分钟。"}, "fr": {"keywords": "Force intérieure • Intégrité • Feu du cœur", "about": "Votre feu grandit ; revenez à votre souveraineté.", "action": "Écrivez l’unique priorité du jour et agissez 15 minutes."}}, {"name": "盖娅 Gaia", "zh": {"keywords": "接地・自然连结・身体觉察", "about": "回到身体与当下，借自然之力稳定身心。", "action": "户外步行10分钟；用脚感受地面并同步呼吸。"}, "fr": {"keywords": "Ancrage • Lien à la nature • Présence corporelle", "about": "Revenez au corps et à l’instant grâce à la Terre.", "action": "Marchez 10 min dehors en ressentant vos pieds et votre souffle."}}, {"name": "凯尔努诺斯 Cernunnos", "zh": {"keywords": "生命力・创意・丰盛流动", "about": "强大生命力需要正直出口。", "action": "把激情转为创作/运动20分钟。"}, "fr": {"keywords": "Vitalité • Créativité • Abondance en flux", "about": "Canalisez l’énergie de vie vers une expression intègre.", "action": "Transformez la passion en création ou en mouvement 20 min."}}, {"name": "Mary Magdalene 抹大拉的玛利亚", "zh": {"keywords": "真理・神圣女性・师者之道", "about": "以温柔而坚定的真理发声。", "action": "写下一段想说的真话，并选择一个安全的场合表达。"}, "fr": {"keywords": "Vérité • Féminin sacré • Enseignante", "about": "Exprimez une vérité douce et ferme.", "action": "Rédigez une vérité à dire et choisissez un contexte sûr pour l’exprimer."}}, {"name": "Sanat Kumara 圣库玛拉", "zh": {"keywords": "内在之光・觉醒・领导力", "about": "点亮自己，也点亮他人。", "action": "分享一条洞见/善意，作为灯塔效应。"}, "fr": {"keywords": "Lumière intérieure • Éveil • Leadership", "about": "Rayonnez et éclairez les autres.", "action": "Partagez un éclairage ou un geste bienveillant aujourd’hui."}}, {"name": "Lady Venus 维纳斯", "zh": {"keywords": "启示・直觉讯息・关系镜像", "about": "洞见通过关系而来；聆听灵感。", "action": "记录今天的直觉/梦境，并寻找一个小验证。"}, "fr": {"keywords": "Révélations • Messages intuitifs • Miroirs relationnels", "about": "Les révélations passent par le lien ; écoutez l’inspiration.", "action": "Notez intuition/rêve du jour et cherchez une petite validation."}}, {"name": "Radha 拉德哈", "zh": {"keywords": "灵魂之爱・共振・奉爱", "about": "自爱是万爱的底色。", "action": "对镜说3遍：我值得被爱，也值得爱自己。"}, "fr": {"keywords": "Amour d’âme • Résonance • Dévotion", "about": "L’amour de soi colore tous les autres.", "action": "Affirmez 3× : « Je mérite l’amour, y compris le mien. »"}}, {"name": "Krishna 克里希纳", "zh": {"keywords": "喜悦・音乐・顺流", "about": "回到游戏精神与神圣的玩心。", "action": "做一件纯粹令你快乐的小事。"}, "fr": {"keywords": "Joie • Musique • Flux", "about": "Retrouvez l’esprit du jeu sacré.", "action": "Faites une petite chose qui vous réjouit vraiment."}}, {"name": "Ganesha 象头神", "zh": {"keywords": "移除障碍・新开始", "about": "道路清理者；请他帮忙扫除阻力。", "action": "写出一个障碍，并列一个替代方案或求助对象。"}, "fr": {"keywords": "Suppression d’obstacles • Nouveau départ", "about": "Nettoyeur de route : demandez son aide.", "action": "Notez un obstacle et une alternative ou une personne‑ressource."}}, {"name": "Mercury 墨丘利", "zh": {"keywords": "沟通・速度・信息流动", "about": "信息需要更清楚的结构与节奏。", "action": "把要点写成三句话再沟通。"}, "fr": {"keywords": "Communication • Vitesse • Flux d’informations", "about": "Structurez votre message et son tempo.", "action": "Condensez en 3 phrases clés avant d’en parler."}}, {"name": "Serapis Bey 塞拉皮斯·贝", "zh": {"keywords": "净化・提升・纪律", "about": "简单、清爽、坚持会打开新通道。", "action": "清理10分钟空间或日程；恢复一个健康习惯。"}, "fr": {"keywords": "Purification • Ascension • Discipline", "about": "Simplicité et constance ouvrent la voie.", "action": "Rangez 10 min un espace/agenda ; réactivez une habitude saine."}}, {"name": "Paul the Venetian 保罗·威尼西亚", "zh": {"keywords": "创造・艺术表达・心灵启发", "about": "让灵感落地成作品。", "action": "用色彩/文字/声音表达你现在的心情。"}, "fr": {"keywords": "Création • Expression artistique • Inspiration", "about": "Faites descendre l’inspiration dans la matière.", "action": "Exprimez votre humeur via couleur/écriture/voix."}}, {"name": "Archangel Raphael 大天使拉斐尔", "zh": {"keywords": "疗愈・绿光・身心整合", "about": "用温和选择修复身体与心。", "action": "今天做一个更友善身体的选择（饮食/休息/运动）。"}, "fr": {"keywords": "Guérison • Rayon vert • Intégration", "about": "Réparez‑vous par des choix doux.", "action": "Faites un choix plus sain aujourd’hui (alimentation/repos/mouvement)."}}, {"name": "Archangel Gabriel 大天使加百列", "zh": {"keywords": "讯息・宣告・表达", "about": "给“该说的话”一个出口。", "action": "写下核心讯息并选择一个合适的对象/渠道发布。"}, "fr": {"keywords": "Messages • Annonce • Expression", "about": "Offrez une voie à ce qui doit être dit.", "action": "Rédigez le message central et choisissez un destinataire/canal."}}, {"name": "Archangel Uriel 大天使乌列尔", "zh": {"keywords": "智慧之火・洞见・稳定", "about": "在不确定中点亮清晰。", "action": "遇事先停10秒，再以一句更中性的描述重新表达。"}, "fr": {"keywords": "Feu de sagesse • Clairvoyance • Stabilité", "about": "Allume la clarté dans l’incertitude.", "action": "Pause de 10 s puis reformulez de façon plus neutre."}}];
+
+  const spEl = document.getElementById('spreadsList');
+  function renderSpreads(){
+    spEl.innerHTML='';
+    spreads.forEach(s => {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `<h3>${s.zh.name} <span class="muted">/ ${s.fr.name}</span></h3>
+        <p><span class="tag">${s.zh.when}</span> <span class="tag">${s.fr.when}</span></p>
+        <p><strong>布局 / Disposition：</strong> ${s.zh.layout} <span class="muted">/ ${s.fr.layout}</span></p>
+        <ul>${s.zh.steps.map(t=>`<li>${t}</li>`).join('')}</ul>
+        <ul class="muted">${s.fr.steps.map(t=>`<li>${t}</li>`).join('')}</ul>`;
+      spEl.appendChild(div);
+    });
+  }
+  renderSpreads();
 
   const listEl = document.getElementById('list');
   function renderList(filter='') { 
     listEl.innerHTML = '';
-    cards.filter(c => (c.name+c.keyword).toLowerCase().includes(filter.toLowerCase()))
+    const f = filter.toLowerCase();
+    cards.filter(c => (c.name + c.zh.keywords + c.fr.keywords + c.zh.about + c.fr.about).toLowerCase().includes(f))
          .forEach((c, idx) => {
            const div = document.createElement('div');
            div.className = 'card';
            div.innerHTML = `<h3>${c.name}</h3>
-             <p class="muted">${c.keyword}</p>
-             <p>${c.tip}</p>
-             <textarea id="note-${idx}" placeholder="我的笔记…" style="width:100%;min-height:70px;border:1px solid #ddd;border-radius:10px;padding:10px;"></textarea>
+             <p><span class="tag">${c.zh.keywords}</span> <span class="tag">${c.fr.keywords}</span></p>
+             <div class="two">
+               <div><p><strong>要点：</strong>${c.zh.about}</p><p><strong>行动：</strong>${c.zh.action}</p></div>
+               <div><p><strong>Essentiel :</strong> ${c.fr.about}</p><p><strong>Action :</strong> ${c.fr.action}</p></div>
+             </div>
+             <textarea id="note-${idx}" placeholder="我的笔记 / Mes notes…" style="width:100%;min-height:70px;border:1px solid #ddd;border-radius:10px;padding:10px;"></textarea>
              <div style="margin-top:8px;">
-               <button class="btn small" onclick="saveNote(${idx})">保存笔记</button>
+               <button class="btn small" onclick="saveNote(${idx})">保存 / Enregistrer</button>
                <span id="saved-${idx}" class="small muted" style="margin-left:8px;"></span>
              </div>`;
            listEl.appendChild(div);
@@ -167,9 +181,12 @@
   const drawnEl = document.getElementById('drawn');
   document.getElementById('drawBtn').addEventListener('click', () => {
     const c = drawOne();
-    drawnEl.innerHTML = `<div class='card'><h3>${c.name}</h3><p class='muted'>${c.keyword}</p><p>${c.tip}</p>
-    <textarea id="draw-note" placeholder="这张牌给我的第一步行动是…（越小越具体越好）" style="width:100%;min-height:90px;border:1px solid #ddd;border-radius:10px;padding:10px;"></textarea>
-    <p class="small muted">已自动保存到本机（离线可用）。</p></div>`;
+    drawnEl.innerHTML = `<div class='card'><h3>${c.name}</h3>
+    <p><span class="tag">${c.zh.keywords}</span> <span class="tag">${c.fr.keywords}</span></p>
+    <div class="two"><div><p><strong>要点：</strong>${c.zh.about}</p><p><strong>行动：</strong>${c.zh.action}</p></div>
+    <div><p><strong>Essentiel :</strong> ${c.fr.about}</p><p><strong>Action :</strong> ${c.fr.action}</p></div></div>
+    <textarea id="draw-note" placeholder="这张牌给我的第一步行动是… / Première petite action…" style="width:100%;min-height:90px;border:1px solid #ddd;border-radius:10px;padding:10px;"></textarea>
+    <p class="small muted">已自动保存到本机（离线可用）。/ Sauvegardé localement (hors‑ligne).</p></div>`;
     const saved = localStorage.getItem('draw-note');
     if (saved) document.getElementById('draw-note').value = saved;
     document.getElementById('draw-note').addEventListener('input', (e)=> localStorage.setItem('draw-note', e.target.value));
@@ -180,7 +197,7 @@
     const name = cards[idx].name;
     localStorage.setItem('note-'+name, ta.value);
     const savedEl = document.getElementById('saved-'+idx);
-    savedEl.textContent = '已保存 ✓';
+    savedEl.textContent = '已保存 ✓ / Enregistré ✓';
     setTimeout(()=>savedEl.textContent='', 1600);
   }
   window.saveNote = saveNote;
@@ -189,8 +206,9 @@
     const ta = document.getElementById('draw-note');
     if (!ta) return;
     localStorage.setItem('draw-note', ta.value);
-    alert('已保存到本机 ✓');
+    alert('已保存到本机 ✓ / Enregistré localement ✓');
   });
 </script>
 </body>
 </html>
+
