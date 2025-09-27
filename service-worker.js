@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'light-keepers-v1';
+const CACHE_NAME = 'light-keepers-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -22,3 +22,4 @@ self.addEventListener('fetch', e => {
     }).catch(() => caches.match('./index.html')))
   );
 });
+
